@@ -1,0 +1,63 @@
+{
+	"name": "telegraf-middleware-console-time",
+	"version": "0.0.0",
+	"description": "Quick and dirty way to see whats incoming to your Telegraf Telegram bot while developing",
+	"license": "MIT",
+	"repository": "EdJoPaTo/telegraf-middleware-console-time",
+	"author": {
+		"name": "EdJoPaTo",
+		"email": "edjopato@gmail.com",
+		"url": "https://edjopato.de"
+	},
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"build": "del-cli dist && tsc",
+		"prepack": "npm run build",
+		"test": "tsc --sourceMap && xo"
+	},
+	"main": "dist",
+	"types": "dist",
+	"files": [
+		"dist",
+		"!*.test.*"
+	],
+	"keywords": [
+		"analysis",
+		"console",
+		"debug",
+		"middleware",
+		"telegraf",
+		"telegram",
+		"time",
+		"timing"
+	],
+	"dependencies": {},
+	"peerDependencies": {
+		"telegraf": "^3.37.0"
+	},
+	"devDependencies": {
+		"@sindresorhus/tsconfig": "^0.7.0",
+		"@types/node": "^13.1.4",
+		"@typescript-eslint/eslint-plugin": "2.25.0",
+		"@typescript-eslint/parser": "2.25.0",
+		"del-cli": "^3.0.0",
+		"telegraf": "^3.37.0",
+		"typescript": "^3.7.4",
+		"xo": "^0.28.1"
+	},
+	"xo": {
+		"semi": false,
+		"extends": "xo-typescript",
+		"extensions": [
+			"ts"
+		],
+		"rules": {
+			"@typescript-eslint/semi": [
+				"error",
+				"never"
+			]
+		}
+	}
+}
