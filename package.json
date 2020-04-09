@@ -40,24 +40,15 @@
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^0.7.0",
 		"@types/node": "^13.1.4",
-		"@typescript-eslint/eslint-plugin": "2.25.0",
-		"@typescript-eslint/parser": "2.25.0",
 		"del-cli": "^3.0.0",
 		"telegraf": "^3.37.0",
 		"typescript": "^3.7.4",
-		"xo": "^0.28.1"
+		"xo": "^0.29.0"
 	},
 	"xo": {
-		"semi": false,
-		"extends": "xo-typescript",
-		"extensions": [
-			"ts"
-		],
+		"semicolon": false,
 		"rules": {
-			"@typescript-eslint/semi": [
-				"error",
-				"never"
-			]
+			"@typescript-eslint/prefer-readonly-parameter-types": "off"
 		}
 	}
 }
