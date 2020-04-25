@@ -1,6 +1,6 @@
-import {Middleware, ContextMessageUpdate} from 'telegraf'
+import {Middleware, Context as TelegrafContext} from 'telegraf'
 
-export function generateUpdateMiddleware<TContext extends ContextMessageUpdate>(label = ''): Middleware<TContext> {
+export function generateUpdateMiddleware<TContext extends TelegrafContext>(label = ''): Middleware<TContext> {
 	return async (ctx, next) => {
 		const identifier = contextIdentifier(ctx, label)
 
@@ -15,7 +15,7 @@ export function generateUpdateMiddleware<TContext extends ContextMessageUpdate>(
 	}
 }
 
-export function contextIdentifier(ctx: ContextMessageUpdate, label = ''): string {
+export function contextIdentifier(ctx: TelegrafContext, label = ''): string {
 	const updateId = ctx.update.update_id.toString(36)
 	const content = ctx.callbackQuery?.data ?? ctx.inlineQuery?.query ?? ctx.message?.text
 	const identifierPartsRaw: Array<string | undefined> = [
@@ -34,7 +34,7 @@ export function contextIdentifier(ctx: ContextMessageUpdate, label = ''): string
 	return identifier
 }
 
-export function generateBeforeMiddleware<TContext extends ContextMessageUpdate>(label = ''): Middleware<TContext> {
+export function generateBeforeMiddleware<TContext extends TelegrafContext>(label = ''): Middleware<TContext> {
 	return async (ctx, next) => {
 		const updateId = ctx.update.update_id.toString(36)
 		console.time(`${updateId} ${label} total`)
@@ -50,7 +50,7 @@ export function generateBeforeMiddleware<TContext extends ContextMessageUpdate>(
 	}
 }
 
-export function generateAfterMiddleware<TContext extends ContextMessageUpdate>(label = ''): Middleware<TContext> {
+export function generateAfterMiddleware<TContext extends TelegrafContext>(label = ''): Middleware<TContext> {
 	return async (ctx, next) => {
 		const updateId = ctx.update.update_id.toString(36)
 		console.timeEnd(`${updateId} ${label} before`)
