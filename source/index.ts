@@ -17,7 +17,6 @@ export function generateUpdateMiddleware<TContext extends TelegrafContext>(label
 
 export function contextIdentifier(ctx: TelegrafContext, label = ''): string {
 	const updateId = ctx.update.update_id.toString(36)
-	const content = ctx.callbackQuery?.data ?? ctx.inlineQuery?.query ?? ctx.message?.text
 	const identifierPartsRaw: Array<string | undefined> = [
 		new Date().toISOString(),
 		updateId,
@@ -26,12 +25,25 @@ export function contextIdentifier(ctx: TelegrafContext, label = ''): string {
 		ctx.chat?.title,
 		ctx.from?.first_name,
 		label,
-		String(content?.length),
-		content?.replace(/\n/g, '\\n')?.slice(0, 20)
+		...contextIdentifierContentPart(ctx)
 	]
 	const identifierParts = identifierPartsRaw.filter(o => o) as string[]
 	const identifier = identifierParts.join(' ')
 	return identifier
+}
+
+function contextIdentifierContentPart(ctx: TelegrafContext): string[] {
+	const content = ctx.callbackQuery?.data ?? ctx.inlineQuery?.query ?? ctx.message?.text
+	if (!content) {
+		return []
+	}
+
+	const lengthString = String(content.length)
+
+	const withoutNewlines = content.replace(/\n/g, '\\n')
+	const contentString = withoutNewlines.slice(0, 20) + (withoutNewlines.length > 20 ? '…' : '')
+
+	return [lengthString, contentString]
 }
 
 export function generateBeforeMiddleware<TContext extends TelegrafContext>(label = ''): Middleware<TContext> {
