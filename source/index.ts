@@ -1,8 +1,11 @@
 import {Middleware, Context as TelegrafContext} from 'telegraf'
 
-export function generateUpdateMiddleware<TContext extends TelegrafContext>(label = ''): Middleware<TContext> {
+// Callback Data is max 64 -> that should be still visible
+const DEFAULT_MAX_CONTENT_LENGTH = 64
+
+export function generateUpdateMiddleware<TContext extends TelegrafContext>(label = '', maxContentLength = DEFAULT_MAX_CONTENT_LENGTH): Middleware<TContext> {
 	return async (ctx, next) => {
-		const identifier = contextIdentifier(ctx, label)
+		const identifier = contextIdentifier(ctx, label, maxContentLength)
 
 		console.time(identifier)
 		try {
@@ -15,7 +18,7 @@ export function generateUpdateMiddleware<TContext extends TelegrafContext>(label
 	}
 }
 
-export function contextIdentifier(ctx: TelegrafContext, label = ''): string {
+export function contextIdentifier(ctx: TelegrafContext, label = '', maxContentLength = DEFAULT_MAX_CONTENT_LENGTH): string {
 	const updateId = ctx.update.update_id.toString(36)
 	const identifierPartsRaw: Array<string | undefined> = [
 		new Date().toISOString(),
@@ -25,14 +28,14 @@ export function contextIdentifier(ctx: TelegrafContext, label = ''): string {
 		ctx.chat?.title,
 		ctx.from?.first_name,
 		label,
-		...contextIdentifierContentPart(ctx)
+		...contextIdentifierContentPart(ctx, maxContentLength)
 	]
 	const identifierParts = identifierPartsRaw.filter(o => o) as string[]
 	const identifier = identifierParts.join(' ')
 	return identifier
 }
 
-function contextIdentifierContentPart(ctx: TelegrafContext): string[] {
+function contextIdentifierContentPart(ctx: TelegrafContext, maxContentLength: number): string[] {
 	const content = ctx.callbackQuery?.data ?? ctx.inlineQuery?.query ?? ctx.message?.text
 	if (!content) {
 		return []
@@ -41,7 +44,7 @@ function contextIdentifierContentPart(ctx: TelegrafContext): string[] {
 	const lengthString = String(content.length)
 
 	const withoutNewlines = content.replace(/\n/g, '\\n')
-	const contentString = withoutNewlines.slice(0, 20) + (withoutNewlines.length > 20 ? '…' : '')
+	const contentString = withoutNewlines.slice(0, maxContentLength) + (withoutNewlines.length > maxContentLength ? '…' : '')
 
 	return [lengthString, contentString]
 }
