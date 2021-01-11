@@ -2,7 +2,6 @@
 
 [![NPM Version](https://img.shields.io/npm/v/telegraf-middleware-console-time.svg)](https://www.npmjs.com/package/telegraf-middleware-console-time)
 [![node](https://img.shields.io/node/v/telegraf-middleware-console-time.svg)](https://www.npmjs.com/package/telegraf-middleware-console-time)
-[![Build Status](https://travis-ci.com/EdJoPaTo/telegraf-middleware-console-time.svg?branch=master)](https://travis-ci.com/EdJoPaTo/telegraf-middleware-console-time)
 [![Dependency Status](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time/status.svg)](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time)
 [![Dev Dependency Status](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time/dev-status.svg)](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time?type=dev)
 
