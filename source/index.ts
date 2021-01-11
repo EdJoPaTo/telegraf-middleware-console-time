@@ -20,12 +20,12 @@ export function generateUpdateMiddleware<TContext extends TelegrafContext>(label
 
 export function contextIdentifier(ctx: TelegrafContext, label = '', maxContentLength = DEFAULT_MAX_CONTENT_LENGTH): string {
 	const updateId = ctx.update.update_id.toString(36)
-	const identifierPartsRaw: Array<string | undefined> = [
+
+	const identifierPartsRaw: Array<string | undefined | false> = [
 		new Date().toISOString(),
 		updateId,
 		ctx.updateType,
-		...ctx.updateSubTypes,
-		ctx.chat?.title,
+		ctx.chat && 'title' in ctx.chat && ctx.chat.title,
 		ctx.from?.first_name,
 		label,
 		...contextIdentifierContentPart(ctx, maxContentLength)
@@ -35,8 +35,28 @@ export function contextIdentifier(ctx: TelegrafContext, label = '', maxContentLe
 	return identifier
 }
 
+function contentFromContext(ctx: TelegrafContext): string | undefined {
+	if (ctx.callbackQuery && 'data' in ctx.callbackQuery) {
+		return ctx.callbackQuery.data
+	}
+
+	if (ctx.message) {
+		if ('text' in ctx.message) {
+			return ctx.message.text
+		}
+
+		if ('caption' in ctx.message) {
+			return ctx.message.caption
+		}
+
+		// TODO: implement different messages
+	}
+
+	return ctx.inlineQuery?.query
+}
+
 function contextIdentifierContentPart(ctx: TelegrafContext, maxContentLength: number): string[] {
-	const content = ctx.callbackQuery?.data ?? ctx.inlineQuery?.query ?? ctx.message?.text
+	const content = contentFromContext(ctx)
 	if (!content) {
 		return []
 	}
