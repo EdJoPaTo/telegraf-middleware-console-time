@@ -5,6 +5,7 @@
 	],
 	"compilerOptions": {
 		"sourceMap": true,
+		"module": "CommonJS",
 		"outDir": "dist"
 	}
 }
