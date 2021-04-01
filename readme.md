@@ -36,7 +36,7 @@ const bot = new Telegraf(…);
 bot.use(…);
 
 // Check your implementation for each telegram update (only when not in production)
-if (process.env.NODE_ENV !== 'production') {
+if (process.env['NODE_ENV'] !== 'production') {
     bot.use(generateUpdateMiddleware());
 }
 
