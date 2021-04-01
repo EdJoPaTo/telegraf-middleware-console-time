@@ -2,27 +2,6 @@
 	"name": "telegraf-middleware-console-time",
 	"version": "2.0.0",
 	"description": "Quick and dirty way to see whats incoming to your Telegraf Telegram bot while developing",
-	"license": "MIT",
-	"repository": "EdJoPaTo/telegraf-middleware-console-time",
-	"author": {
-		"name": "EdJoPaTo",
-		"email": "telegraf-npm-package@edjopato.de",
-		"url": "https://edjopato.de"
-	},
-	"engines": {
-		"node": ">=12"
-	},
-	"scripts": {
-		"build": "del-cli dist && tsc",
-		"prepack": "npm run build",
-		"test": "tsc --sourceMap && xo"
-	},
-	"main": "dist",
-	"types": "dist",
-	"files": [
-		"dist",
-		"!*.test.*"
-	],
 	"keywords": [
 		"analysis",
 		"console",
@@ -33,6 +12,21 @@
 		"time",
 		"timing"
 	],
+	"license": "MIT",
+	"repository": "EdJoPaTo/telegraf-middleware-console-time",
+	"author": {
+		"name": "EdJoPaTo",
+		"email": "telegraf-npm-package@edjopato.de",
+		"url": "https://edjopato.de"
+	},
+	"scripts": {
+		"build": "del-cli dist && tsc",
+		"prepack": "npm run build",
+		"test": "tsc --sourceMap && xo"
+	},
+	"engines": {
+		"node": ">=12"
+	},
 	"dependencies": {},
 	"peerDependencies": {
 		"telegraf": "^4.0.0"
@@ -45,6 +39,12 @@
 		"typescript": "^4.1.2",
 		"xo": "^0.38.1"
 	},
+	"files": [
+		"dist",
+		"!*.test.*"
+	],
+	"main": "dist",
+	"types": "dist",
 	"xo": {
 		"semicolon": false,
 		"rules": {
