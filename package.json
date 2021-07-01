@@ -1,6 +1,6 @@
 {
 	"name": "telegraf-middleware-console-time",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "Quick and dirty way to see whats incoming to your Telegraf Telegram bot while developing",
 	"keywords": [
 		"analysis",
