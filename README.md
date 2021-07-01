@@ -5,14 +5,14 @@
 [![Dependency Status](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time/status.svg)](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time)
 [![Dev Dependency Status](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time/dev-status.svg)](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time?type=dev)
 
-> Quick and dirty way to see whats incoming to your Telegraf Telegram bot while developing
+> Quick and dirty way to see what's incoming to your Telegraf or grammY Telegram bot while developing
 
-When testing your bot its nice to know whats coming in and how long it did take to process this request.
+When testing your bot it's nice to know what's coming in and how long it did take to process this request.
 
 This library is not meant for usage in production.
 It's meant for debugging purposes.
 
-In production the individual request wouldnt be as interesting as the general kind of request.
+In production the individual request wouldn't be as interesting as the general kind of request.
 For example not taking a look onto a specific '/start' command but onto all /start messages.
 This is kind of the opposite of what this library tries to achieve: Helping with understanding individual requests.
 
@@ -30,7 +30,7 @@ $ npm install telegraf-middleware-console-time
 ```js
 const {generateUpdateMiddleware} = require('telegraf-middleware-console-time');
 
-const bot = new Telegraf(…);
+const bot = new Bot(…);
 
 // Other middlewares unrelated to your code
 bot.use(…);
@@ -47,13 +47,13 @@ bot.command('start', …);
 This will output something like this:
 
 ```
-2020-03-31T14:32:36.974Z 490af message text Edgar 6 /start: 926.247ms
-2020-03-31T14:32:57.750Z 490ag message text Edgar 6 /start: 914.764ms
-2020-03-31T14:33:01.188Z 490ah message text Edgar 5 /stop: 302.666ms
-2020-03-31T14:46:11.385Z 490ai message text Edgar 6 /start: 892.452ms
+2020-03-31T14:32:36.974Z 490af message Edgar 6 /start: 926.247ms
+2020-03-31T14:32:57.750Z 490ag message Edgar 6 /start: 914.764ms
+2020-03-31T14:33:01.188Z 490ah message Edgar 5 /stop: 302.666ms
+2020-03-31T14:46:11.385Z 490ai message Edgar 6 /start: 892.452ms
 ```
 
-The `490af` is the update id.
+The `490af` is the `update_id`.
 
 The number before the commands is the total length of the content.
 This is helpful when considering max length for stuff like callback data.
@@ -67,7 +67,7 @@ When you create your own middleware or assume slow timings of another middleware
 ```js
 const {generateBeforeMiddleware, generateAfterMiddleware} = require('telegraf-middleware-console-time');
 
-const bot = new Telegraf(…);
+const bot = new Bot(…);
 
 // Use BeforeMiddleware before loading the to be tested middleware
 bot.use(generateBeforeMiddleware('foo'))
