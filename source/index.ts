@@ -54,7 +54,7 @@ export function contextIdentifier(ctx: MinimalIdentifierContext, label = '', max
 		ctx.chat && 'title' in ctx.chat && ctx.chat.title,
 		ctx.from?.first_name,
 		label,
-		...contextIdentifierContentPart(ctx, maxContentLength)
+		...contextIdentifierContentPart(ctx, maxContentLength),
 	]
 	const identifierParts = identifierPartsRaw.filter(o => o) as string[]
 	const identifier = identifierParts.join(' ')
