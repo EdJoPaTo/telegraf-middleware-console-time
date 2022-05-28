@@ -56,7 +56,7 @@ export function contextIdentifier(ctx: MinimalIdentifierContext, label = '', max
 		label,
 		...contextIdentifierContentPart(ctx, maxContentLength),
 	]
-	const identifierParts = identifierPartsRaw.filter(o => o) as string[]
+	const identifierParts = identifierPartsRaw.filter(Boolean) as string[]
 	const identifier = identifierParts.join(' ')
 	return identifier
 }
