@@ -2,8 +2,6 @@
 
 [![NPM Version](https://img.shields.io/npm/v/telegraf-middleware-console-time.svg)](https://www.npmjs.com/package/telegraf-middleware-console-time)
 [![node](https://img.shields.io/node/v/telegraf-middleware-console-time.svg)](https://www.npmjs.com/package/telegraf-middleware-console-time)
-[![Dependency Status](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time/status.svg)](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time)
-[![Dev Dependency Status](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time/dev-status.svg)](https://david-dm.org/EdJoPaTo/telegraf-middleware-console-time?type=dev)
 
 > Quick and dirty way to see what's incoming to your Telegraf or grammY Telegram bot while developing
 
@@ -18,17 +16,16 @@ This is kind of the opposite of what this library tries to achieve: Helping with
 
 ## Install
 
+```bash
+npm install telegraf-middleware-console-time
 ```
-$ npm install telegraf-middleware-console-time
-```
-
 
 ## Usage
 
 ### Test your implementation
 
 ```js
-const {generateUpdateMiddleware} = require('telegraf-middleware-console-time');
+import {generateUpdateMiddleware} from 'telegraf-middleware-console-time';
 
 const bot = new Bot(…);
 
@@ -65,7 +62,7 @@ The content itself is shortened in order to prevent log spamming.
 When you create your own middleware or assume slow timings of another middleware you can use these middlewares to create a timing profile
 
 ```js
-const {generateBeforeMiddleware, generateAfterMiddleware} = require('telegraf-middleware-console-time');
+import {generateBeforeMiddleware, generateAfterMiddleware} from 'telegraf-middleware-console-time';
 
 const bot = new Bot(…);
 
