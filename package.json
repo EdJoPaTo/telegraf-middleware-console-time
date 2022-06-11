@@ -27,11 +27,10 @@
 	},
 	"type": "commonjs",
 	"engines": {
-		"node": ">=12"
+		"node": ">=14"
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^3.0.1",
-		"@types/node": "^12.20.19",
 		"del-cli": "^4.0.0",
 		"grammy": "^1.2.0",
 		"telegraf": "^4.0.0",
