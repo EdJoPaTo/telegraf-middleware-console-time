@@ -1,7 +1,8 @@
 {
 	"extends": "@sindresorhus/tsconfig/tsconfig.json",
 	"include": [
-		"source"
+		"source",
+		"test"
 	],
 	"compilerOptions": {
 		"sourceMap": true,

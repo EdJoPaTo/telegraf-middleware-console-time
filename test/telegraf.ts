@@ -1,6 +1,6 @@
 import {Telegraf} from 'telegraf'
 
-import {generateUpdateMiddleware, generateBeforeMiddleware, generateAfterMiddleware} from '.'
+import {generateUpdateMiddleware, generateBeforeMiddleware, generateAfterMiddleware} from '../source/index.js'
 
 const bot = new Telegraf('')
 

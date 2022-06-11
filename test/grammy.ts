@@ -1,6 +1,6 @@
 import {Bot} from 'grammy'
 
-import {generateUpdateMiddleware, generateBeforeMiddleware, generateAfterMiddleware} from '.'
+import {generateUpdateMiddleware, generateBeforeMiddleware, generateAfterMiddleware} from '../source/index.js'
 
 const bot = new Bot('')
 

@@ -39,11 +39,11 @@
 		"xo": "^0.49.0"
 	},
 	"files": [
-		"dist",
+		"dist/source",
 		"!**/*.test.*"
 	],
-	"main": "dist",
-	"types": "dist",
+	"main": "./dist/source/index.js",
+	"types": "./dist/source/index.d.ts",
 	"xo": {
 		"semicolon": false,
 		"rules": {
