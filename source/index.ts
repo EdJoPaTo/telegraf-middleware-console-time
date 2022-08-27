@@ -1,13 +1,13 @@
 // Callback Data is max 64 -> that should be still visible
 const DEFAULT_MAX_CONTENT_LENGTH = 64
 
-interface MinimalContext {
+type MinimalContext = {
 	readonly update: {
 		readonly update_id: number;
 	};
 }
 
-interface MinimalIdentifierContext extends MinimalContext {
+type MinimalIdentifierContext = MinimalContext & {
 	readonly chat?: {} | {
 		readonly title?: string;
 	};
