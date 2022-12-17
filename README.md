@@ -1,8 +1,5 @@
 # telegraf-middleware-console-time
 
-[![NPM Version](https://img.shields.io/npm/v/telegraf-middleware-console-time.svg)](https://www.npmjs.com/package/telegraf-middleware-console-time)
-[![node](https://img.shields.io/node/v/telegraf-middleware-console-time.svg)](https://www.npmjs.com/package/telegraf-middleware-console-time)
-
 > Quick and dirty way to see what's incoming to your Telegraf or grammY Telegram bot while developing
 
 When testing your bot it's nice to know what's coming in and how long it did take to process this request.
@@ -43,7 +40,7 @@ bot.command('start', …);
 
 This will output something like this:
 
-```
+```plaintext
 2020-03-31T14:32:36.974Z 490af message Edgar 6 /start: 926.247ms
 2020-03-31T14:32:57.750Z 490ag message Edgar 6 /start: 914.764ms
 2020-03-31T14:33:01.188Z 490ah message Edgar 5 /stop: 302.666ms
@@ -82,7 +79,7 @@ bot.on(…, …)
 
 This will output something like this:
 
-```
+```plaintext
 490ai foo before: 304.185ms
 490ai foo inner: 83.122ms
 490ai foo after: 501.028ms
