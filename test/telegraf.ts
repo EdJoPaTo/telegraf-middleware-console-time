@@ -1,10 +1,10 @@
-import {Telegraf} from 'telegraf'
+import {Telegraf} from 'telegraf';
 
-import {generateUpdateMiddleware, generateBeforeMiddleware, generateAfterMiddleware} from '../source/index.js'
+import {generateUpdateMiddleware, generateBeforeMiddleware, generateAfterMiddleware} from '../source/index.js';
 
-const bot = new Telegraf('')
+const bot = new Telegraf('');
 
-bot.use(generateUpdateMiddleware())
+bot.use(generateUpdateMiddleware());
 
-bot.use(generateBeforeMiddleware())
-bot.use(generateAfterMiddleware())
+bot.use(generateBeforeMiddleware());
+bot.use(generateAfterMiddleware());
