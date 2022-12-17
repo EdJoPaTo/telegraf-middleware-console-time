@@ -1,6 +1,6 @@
 # telegraf-middleware-console-time
 
-> Quick and dirty way to see what's incoming to your Telegraf or grammY Telegram bot while developing
+> Debug your Telegram middlewares
 
 When testing your bot it's nice to know what's coming in and how long it did take to process this request.
 
