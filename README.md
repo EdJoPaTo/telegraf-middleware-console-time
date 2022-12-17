@@ -2,14 +2,16 @@
 
 > Debug your Telegram middlewares
 
-When testing your bot it's nice to know what's coming in and how long it did take to process this request.
+When testing your bot it's nice to know what's coming in and how long it did
+take to process this request.
 
-This library is not meant for usage in production.
-It's meant for debugging purposes.
+This library is not meant for usage in production. It's meant for debugging
+purposes.
 
-In production the individual request wouldn't be as interesting as the general kind of request.
-For example not taking a look onto a specific '/start' command but onto all /start messages.
-This is kind of the opposite of what this library tries to achieve: Helping with understanding individual requests.
+In production the individual request wouldn't be as interesting as the general
+kind of request. For example not taking a look onto a specific '/start' command
+but onto all /start messages. This is kind of the opposite of what this library
+tries to achieve: Helping with understanding individual requests.
 
 ## Install
 
@@ -49,14 +51,15 @@ This will output something like this:
 
 The `490af` is the `update_id`.
 
-The number before the commands is the total length of the content.
-This is helpful when considering max length for stuff like callback data.
+The number before the commands is the total length of the content. This is
+helpful when considering max length for stuff like callback data.
 
 The content itself is shortened in order to prevent log spamming.
 
 ### Test a middleware
 
-When you create your own middleware or assume slow timings of another middleware you can use these middlewares to create a timing profile
+When you create your own middleware or assume slow timings of another middleware
+you can use these middlewares to create a timing profile
 
 ```js
 import {generateBeforeMiddleware, generateAfterMiddleware} from 'telegraf-middleware-console-time';
@@ -86,4 +89,5 @@ This will output something like this:
 490ai foo total: 891.849ms
 ```
 
-This indicates the checked middleware alone took 800ms and isnt as performant as maybe needed.
+This indicates the checked middleware alone took 800ms and isnt as performant as
+maybe needed.
