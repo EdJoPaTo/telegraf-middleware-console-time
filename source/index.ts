@@ -55,7 +55,8 @@ export function contextIdentifier(
 	maxContentLength = DEFAULT_MAX_CONTENT_LENGTH,
 ): string {
 	const updateId = ctx.update.update_id.toString(36);
-	const updateType = Object.keys(ctx.update).filter(o => o !== 'update_id').join('|');
+	const updateTypes = Object.keys(ctx.update).filter(o => o !== 'update_id');
+	const updateType = updateTypes.join('|');
 
 	const identifierPartsRaw: Array<string | undefined | false> = [
 		new Date().toISOString(),
@@ -103,7 +104,8 @@ function contextIdentifierContentPart(
 	const lengthString = String(content.length);
 
 	const withoutNewlines = content.replace(/\n/g, '\\n');
-	const contentString = withoutNewlines.slice(0, maxContentLength) + (withoutNewlines.length > maxContentLength ? '…' : '');
+	const suffix = withoutNewlines.length > maxContentLength ? '…' : '';
+	const contentString = withoutNewlines.slice(0, maxContentLength) + suffix;
 
 	return [lengthString, contentString];
 }
