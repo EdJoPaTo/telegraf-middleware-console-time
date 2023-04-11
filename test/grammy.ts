@@ -1,5 +1,4 @@
 import {Bot} from 'grammy';
-
 import {
 	generateAfterMiddleware,
 	generateBeforeMiddleware,

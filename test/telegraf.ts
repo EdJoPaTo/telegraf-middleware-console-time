@@ -1,5 +1,4 @@
 import {Telegraf} from 'telegraf';
-
 import {
 	generateAfterMiddleware,
 	generateBeforeMiddleware,
