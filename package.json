@@ -23,7 +23,7 @@
 	"scripts": {
 		"build": "del-cli dist && tsc",
 		"prepack": "npm run build",
-		"test": "tsc --sourceMap && xo"
+		"test": "tsc --sourceMap && xo && ava"
 	},
 	"type": "commonjs",
 	"engines": {
@@ -31,6 +31,7 @@
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^3.0.1",
+		"ava": "^5.2.0",
 		"del-cli": "^5.0.0",
 		"grammy": "^1.2.0",
 		"telegraf": "^4.0.0",
@@ -47,7 +48,9 @@
 		"rules": {
 			"@typescript-eslint/ban-types": "off",
 			"@typescript-eslint/naming-convention": "off",
-			"@typescript-eslint/prefer-readonly-parameter-types": "warn"
+			"@typescript-eslint/prefer-readonly-parameter-types": "warn",
+			"ava/no-ignored-test-files": "off",
+			"ava/no-skip-test": "off"
 		}
 	}
 }

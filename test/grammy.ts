@@ -1,13 +1,16 @@
 import {Bot} from 'grammy';
+import test from 'ava';
 import {
 	generateAfterMiddleware,
 	generateBeforeMiddleware,
 	generateUpdateMiddleware,
 } from '../source/index.js';
 
-const bot = new Bot('');
+test.skip('compiles', () => {
+	const bot = new Bot('');
 
-bot.use(generateUpdateMiddleware());
+	bot.use(generateUpdateMiddleware());
 
-bot.use(generateBeforeMiddleware());
-bot.use(generateAfterMiddleware());
+	bot.use(generateBeforeMiddleware());
+	bot.use(generateAfterMiddleware());
+});

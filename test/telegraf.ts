@@ -1,13 +1,16 @@
 import {Telegraf} from 'telegraf';
+import test from 'ava';
 import {
 	generateAfterMiddleware,
 	generateBeforeMiddleware,
 	generateUpdateMiddleware,
 } from '../source/index.js';
 
-const bot = new Telegraf('');
+test.skip('compiles', () => {
+	const bot = new Telegraf('');
 
-bot.use(generateUpdateMiddleware());
+	bot.use(generateUpdateMiddleware());
 
-bot.use(generateBeforeMiddleware());
-bot.use(generateAfterMiddleware());
+	bot.use(generateBeforeMiddleware());
+	bot.use(generateAfterMiddleware());
+});
