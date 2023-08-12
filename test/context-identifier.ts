@@ -7,6 +7,6 @@ test('content shortening works', t => {
 		undefined,
 		5,
 	);
-	const dateRemoved = identifier.replace(/^[-.:\dT]+Z/g, 'date');
+	const dateRemoved = identifier.replaceAll(/^[-.:\dT]+Z/g, 'date');
 	t.is(dateRemoved, 'date 3 9 blabl…');
 });

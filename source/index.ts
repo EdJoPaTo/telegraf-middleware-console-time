@@ -103,7 +103,7 @@ function contextIdentifierContentPart(
 
 	const lengthString = String(content.length);
 
-	const withoutNewlines = content.replace(/\n/g, '\\n');
+	const withoutNewlines = content.replaceAll('\n', '\\n');
 	const suffix = withoutNewlines.length > maxContentLength ? '…' : '';
 	const contentString = withoutNewlines.slice(0, maxContentLength) + suffix;
 

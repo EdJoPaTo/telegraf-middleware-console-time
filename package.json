@@ -14,7 +14,10 @@
 		"timing"
 	],
 	"license": "MIT",
-	"repository": "EdJoPaTo/telegraf-middleware-console-time",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/EdJoPaTo/telegraf-middleware-console-time.git"
+	},
 	"author": {
 		"name": "EdJoPaTo",
 		"email": "telegraf-npm-package@edjopato.de",
@@ -23,24 +26,25 @@
 	"scripts": {
 		"build": "del-cli dist && tsc",
 		"prepack": "npm run build",
-		"test": "tsc --sourceMap && xo && ava"
+		"test": "tsc --sourceMap && xo && c8 --all ava"
 	},
-	"type": "commonjs",
+	"type": "module",
 	"engines": {
-		"node": ">=14"
+		"node": ">=18"
 	},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^3.0.1",
+		"@sindresorhus/tsconfig": "^4.0.0",
 		"ava": "^5.2.0",
+		"c8": "^8.0.1",
 		"del-cli": "^5.0.0",
 		"grammy": "^1.2.0",
 		"telegraf": "^4.0.0",
 		"typescript": "^5.0.2",
-		"xo": "^0.54.0"
+		"xo": "^0.55.1"
 	},
 	"files": [
 		"dist/source",
-		"!**/*.test.*"
+		"!*.test.*"
 	],
 	"main": "./dist/source/index.js",
 	"types": "./dist/source/index.d.ts",
