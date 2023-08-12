@@ -30,7 +30,7 @@
 		"node": ">=14"
 	},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^3.0.1",
+		"@sindresorhus/tsconfig": "^4.0.0",
 		"ava": "^5.2.0",
 		"del-cli": "^5.0.0",
 		"grammy": "^1.2.0",
