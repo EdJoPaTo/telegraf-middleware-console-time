@@ -34,7 +34,7 @@
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^5.0.0",
-		"ava": "^5.2.0",
+		"ava": "^6.0.1",
 		"c8": "^8.0.1",
 		"del-cli": "^5.0.0",
 		"grammy": "^1.2.0",
