@@ -1,12 +1,11 @@
 {
 	"extends": "@sindresorhus/tsconfig/tsconfig.json",
 	"include": [
-		"source",
-		"test"
+		"source"
 	],
 	"compilerOptions": {
+		"lib": ["ES2022"],
 		"target": "ES2022", // Node.js 18
-		"lib": ["ES2023"],
 		"outDir": "dist"
 	}
 }

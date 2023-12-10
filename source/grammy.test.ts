@@ -1,13 +1,13 @@
+import {test} from 'node:test';
 import {Bot} from 'grammy';
-import test from 'ava';
 import {
 	generateAfterMiddleware,
 	generateBeforeMiddleware,
 	generateUpdateMiddleware,
-} from '../source/index.js';
+} from './index.js';
 
-test.skip('compiles', () => {
-	const bot = new Bot('');
+await test('grammY', () => {
+	const bot = new Bot('123:ABC');
 
 	bot.use(generateUpdateMiddleware());
 
