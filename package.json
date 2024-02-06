@@ -40,7 +40,7 @@
 		"grammy": "^1.2.0",
 		"telegraf": "^4.0.0",
 		"typescript": "^5.0.2",
-		"xo": "^0.56.0"
+		"xo": "^0.57.0"
 	},
 	"files": [
 		"dist",
@@ -53,7 +53,8 @@
 		"rules": {
 			"@typescript-eslint/ban-types": "off",
 			"@typescript-eslint/naming-convention": "off",
-			"@typescript-eslint/prefer-readonly-parameter-types": "warn"
+			"@typescript-eslint/prefer-readonly-parameter-types": "warn",
+			"unicorn/prevent-abbreviations": "off"
 		}
 	}
 }

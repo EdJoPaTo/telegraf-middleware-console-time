@@ -26,7 +26,7 @@ type MinimalIdentifierContext = MinimalContext & {
 	};
 };
 
-type MiddlewareFn<Context> = (
+type MiddlewareFunction<Context> = (
 	ctx: Context,
 	next: () => Promise<void>,
 ) => Promise<void>;
@@ -34,7 +34,7 @@ type MiddlewareFn<Context> = (
 export function generateUpdateMiddleware(
 	label = '',
 	maxContentLength = DEFAULT_MAX_CONTENT_LENGTH,
-): MiddlewareFn<MinimalIdentifierContext> {
+): MiddlewareFunction<MinimalIdentifierContext> {
 	return async (ctx, next) => {
 		const identifier = contextIdentifier(ctx, label, maxContentLength);
 
@@ -112,7 +112,7 @@ function contextIdentifierContentPart(
 
 export function generateBeforeMiddleware(
 	label = '',
-): MiddlewareFn<MinimalContext> {
+): MiddlewareFunction<MinimalContext> {
 	return async (ctx, next) => {
 		const updateId = ctx.update.update_id.toString(36);
 		console.time(`${updateId} ${label} total`);
@@ -130,7 +130,7 @@ export function generateBeforeMiddleware(
 
 export function generateAfterMiddleware(
 	label = '',
-): MiddlewareFn<MinimalContext> {
+): MiddlewareFunction<MinimalContext> {
 	return async (ctx, next) => {
 		const updateId = ctx.update.update_id.toString(36);
 		console.timeEnd(`${updateId} ${label} before`);
