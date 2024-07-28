@@ -40,7 +40,7 @@
 		"grammy": "^1.2.0",
 		"telegraf": "^4.0.0",
 		"typescript": "^5.5.2",
-		"xo": "^0.58.0"
+		"xo": "^0.59.3"
 	},
 	"files": [
 		"dist",
@@ -55,6 +55,19 @@
 			"@typescript-eslint/naming-convention": "off",
 			"@typescript-eslint/prefer-readonly-parameter-types": "warn",
 			"unicorn/prevent-abbreviations": "off"
-		}
+		},
+		"overrides": [
+			{
+				"files": [
+					"**/*.test.*",
+					"**/test.*"
+				],
+				"rules": {
+					"@typescript-eslint/prefer-readonly-parameter-types": "off",
+					"n/no-unsupported-features/es-syntax": "off",
+					"n/no-unsupported-features/node-builtins": "off"
+				}
+			}
+		]
 	}
 }
