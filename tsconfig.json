@@ -18,7 +18,7 @@
 		"rewriteRelativeImportExtensions": true,
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "es2022", // Node.js 18
+		"target": "es2021", // Node.js 16
 		"verbatimModuleSyntax": true
 	}
 }

@@ -30,10 +30,10 @@
 	},
 	"type": "module",
 	"engines": {
-		"node": ">=18"
+		"node": ">=16"
 	},
 	"devDependencies": {
-		"@types/node": "^18.18.13",
+		"@types/node": "^16.18.126",
 		"c8": "^10.1.2",
 		"del-cli": "^6.0.0",
 		"grammy": "^1.2.0",
