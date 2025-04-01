@@ -8,20 +8,20 @@ type MinimalContext = {
 };
 
 type MinimalIdentifierContext = MinimalContext & {
-	readonly chat?: {} | {
+	readonly chat?: undefined | {} | {
 		readonly title?: string;
 	};
-	readonly from?: {
+	readonly from?: undefined | {
 		readonly first_name?: string;
 	};
-	readonly callbackQuery?: {} | {
+	readonly callbackQuery?: undefined | {} | {
 		readonly data?: string;
 	};
-	readonly message?: {} | {
+	readonly message?: undefined | {} | {
 		readonly text?: string;
 		readonly caption?: string;
 	};
-	readonly inlineQuery?: {
+	readonly inlineQuery?: undefined | {
 		readonly query?: string;
 	};
 };
