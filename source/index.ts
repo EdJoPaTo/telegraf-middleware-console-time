@@ -55,8 +55,9 @@ export function contextIdentifier(
 	maxContentLength = DEFAULT_MAX_CONTENT_LENGTH,
 ): string {
 	const updateId = ctx.update.update_id.toString(36);
-	const updateTypes = Object.keys(ctx.update).filter(o => o !== 'update_id');
-	const updateType = updateTypes.join('|');
+	const updateType = Object.keys(ctx.update)
+		.filter(o => o !== 'update_id')
+		.join('|');
 
 	const identifierPartsRaw: Array<string | undefined | false> = [
 		new Date().toISOString(),
