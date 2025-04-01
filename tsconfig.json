@@ -1,11 +1,23 @@
 {
-	"extends": "@sindresorhus/tsconfig",
-	"include": [
-		"source"
-	],
 	"compilerOptions": {
-		"lib": ["ES2022"],
-		"target": "ES2022", // Node.js 18
-		"outDir": "dist"
+		"declaration": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "node16",
+		"moduleDetection": "force",
+		"noEmitOnError": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
+		"noUncheckedSideEffectImports": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"outDir": "dist",
+		"rewriteRelativeImportExtensions": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "es2022", // Node.js 18
+		"verbatimModuleSyntax": true
 	}
 }
