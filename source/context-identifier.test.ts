@@ -1,6 +1,6 @@
 import {strictEqual} from 'node:assert';
 import {test} from 'node:test';
-import {contextIdentifier} from './index.js';
+import {contextIdentifier} from './index.ts';
 
 await test('content shortening works', () => {
 	const identifier = contextIdentifier(

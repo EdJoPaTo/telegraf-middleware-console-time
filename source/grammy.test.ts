@@ -4,7 +4,7 @@ import {
 	generateAfterMiddleware,
 	generateBeforeMiddleware,
 	generateUpdateMiddleware,
-} from './index.js';
+} from './index.ts';
 
 await test('grammY', () => {
 	const bot = new Bot('123:ABC');
