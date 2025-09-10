@@ -8,16 +8,19 @@ type MinimalContext = {
 };
 
 type MinimalIdentifierContext = MinimalContext & {
-	readonly chat?: undefined | {} | {
+	// eslint-disable-next-line @typescript-eslint/no-restricted-types
+	readonly chat?: undefined | object | {
 		readonly title?: string;
 	};
 	readonly from?: undefined | {
 		readonly first_name?: string;
 	};
-	readonly callbackQuery?: undefined | {} | {
+	// eslint-disable-next-line @typescript-eslint/no-restricted-types
+	readonly callbackQuery?: undefined | object | {
 		readonly data?: string;
 	};
-	readonly message?: undefined | {} | {
+	// eslint-disable-next-line @typescript-eslint/no-restricted-types
+	readonly message?: undefined | object | {
 		readonly text?: string;
 		readonly caption?: string;
 	};
@@ -104,16 +107,14 @@ function contextIdentifierContentPart(
 
 	const lengthString = String(content.length);
 
-	const withoutNewlines = content.replaceAll('\n', '\\n');
+	const withoutNewlines = content.replaceAll('\n', String.raw`\n`);
 	const suffix = withoutNewlines.length > maxContentLength ? '…' : '';
 	const contentString = withoutNewlines.slice(0, maxContentLength) + suffix;
 
 	return [lengthString, contentString];
 }
 
-export function generateBeforeMiddleware(
-	label = '',
-): MiddlewareFunction<MinimalContext> {
+export function generateBeforeMiddleware(label = ''): MiddlewareFunction<MinimalContext> {
 	return async (ctx, next) => {
 		const updateId = ctx.update.update_id.toString(36);
 		console.time(`${updateId} ${label} total`);
@@ -129,9 +130,7 @@ export function generateBeforeMiddleware(
 	};
 }
 
-export function generateAfterMiddleware(
-	label = '',
-): MiddlewareFunction<MinimalContext> {
+export function generateAfterMiddleware(label = ''): MiddlewareFunction<MinimalContext> {
 	return async (ctx, next) => {
 		const updateId = ctx.update.update_id.toString(36);
 		console.timeEnd(`${updateId} ${label} before`);
