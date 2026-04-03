@@ -24,7 +24,7 @@
 		"url": "https://edjopato.de"
 	},
 	"scripts": {
-		"build": "del-cli dist && tsc",
+		"build": "rm -rf dist && tsc",
 		"prepack": "npm run build",
 		"test": "tsc --sourceMap && xo && c8 --all node --test --enable-source-maps"
 	},
@@ -35,7 +35,6 @@
 	"devDependencies": {
 		"@types/node": "^16.18.126",
 		"c8": "^10.1.2",
-		"del-cli": "^6.0.0",
 		"grammy": "^1.2.0",
 		"telegraf": "^4.0.0",
 		"typescript": "^5.9.2",
