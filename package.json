@@ -37,7 +37,7 @@
 		"c8": "^10.1.2",
 		"grammy": "^1.2.0",
 		"telegraf": "^4.0.0",
-		"typescript": "^5.9.2",
+		"typescript": "^6.0.2",
 		"xo": "^1.2.2"
 	},
 	"files": [
